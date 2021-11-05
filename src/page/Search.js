@@ -3,6 +3,8 @@ import axios from "axios";
 import FormSearch from "../components/FormSearch";
 import ListContext from "../context/CreateContext";
 
+require('dotenv').config();
+
 function Search() {
     const { setList } = useContext(ListContext);
 
@@ -30,11 +32,11 @@ function Search() {
 
     const clickSearch = async (e) => {
         e.preventDefault();
-        // if ()
+        const listItems = axios.get()
     }
 
     useEffect(() => {
-        if (category !== '') {
+        if (category !== '' && web !== '') {
             setDisabled(false);
         } else {
             setDisabled(true);
