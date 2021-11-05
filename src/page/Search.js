@@ -10,7 +10,7 @@ function Search() {
     const [web, setWeb] = useState('');
     const [disabled, setDisabled] = useState(true);
 
-    const text = document.querySelector('#text');
+    const textItem = document.querySelector('#text');
     const categorySelected = document.querySelector('#category');
 
     const handleOnChangeCategory = ({ target }) => {
@@ -18,7 +18,7 @@ function Search() {
         if (name === 'text') {
             categorySelected.value = '';
         } else {
-            text.value = '';
+            textItem.value = '';
         }
         setCategory(value);
     }
