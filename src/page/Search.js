@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import FormSearch from "../components/FormSearch";
 import ListContext from "../context/CreateContext";
 
 function Search() {
+    const { setList } = useContext(ListContext);
+
     const [category, setCategory] = useState('');
     const [web, setWeb] = useState('');
+    const [disabled, setDisabled] = useState(true);
 
     const text = document.querySelector('#text');
     const categorySelected = document.querySelector('#category');
@@ -24,14 +28,24 @@ function Search() {
         setWeb(value);
     }
 
-    const clickSearch = async () => {
-        
+    const clickSearch = async (e) => {
+        e.preventDefault();
+        // if ()
     }
+
+    useEffect(() => {
+        if (category !== '' || web !== '') {
+            setDisabled(false);
+        } else {
+            setDisabled(true);
+        }
+    }, [category, web]);
 
     return (
         <FormSearch
             handle={ handleOnChangeCategory }
             web={ handleOnChangeWeb }
+            disabled={ disabled }
             
         />
     )

@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormSearch({ handle, web }) {
+function FormSearch({ handle, web, disabled }) {
     const searchByWeb = () => {
         return (
             <select
@@ -46,6 +46,7 @@ function FormSearch({ handle, web }) {
         return (
             <button
                 type='button'
+                disabled={ disabled }
             >
                 Pesquisar
             </button>
