@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import env from "react-dotenv";
 import axios from "axios";
 import FormSearch from "../components/FormSearch";
 import ListContext from "../context/CreateContext";
@@ -33,7 +32,7 @@ function Search() {
 
     const clickSearch = async (e) => {
         e.preventDefault();
-        await axios.post(`${ env.REACT_APP_URL_BASE }${ web }`,
+        await axios.post(`https://backend-lexart.herokuapp.com/${ web }`,
             { category }
         )
             .then(({ data }) => {
