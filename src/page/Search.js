@@ -34,7 +34,7 @@ function Search() {
     }
 
     useEffect(() => {
-        if (category !== '' || web !== '') {
+        if (category !== '') {
             setDisabled(false);
         } else {
             setDisabled(true);
