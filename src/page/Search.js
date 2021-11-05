@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import env from "react-dotenv";
 import axios from "axios";
 import FormSearch from "../components/FormSearch";
 import ListContext from "../context/CreateContext";
-
-require('dotenv').config();
 
 function Search() {
     const { setList } = useContext(ListContext);
@@ -11,16 +10,18 @@ function Search() {
     const [category, setCategory] = useState('');
     const [web, setWeb] = useState('');
     const [disabled, setDisabled] = useState(true);
+    const [hide, setHide] = useState(true);
 
     const textItem = document.querySelector('#text');
     const categorySelected = document.querySelector('#category');
 
     const handleOnChangeCategory = ({ target }) => {
         const { name, value } = target;
+
         if (name === 'text') {
-            categorySelected.value = '';
+            categorySelected && (categorySelected.value = '');
         } else {
-            textItem.value = '';
+            textItem && (textItem.value = '');
         }
         setCategory(value);
     }
@@ -32,7 +33,18 @@ function Search() {
 
     const clickSearch = async (e) => {
         e.preventDefault();
-        const listItems = axios.get()
+        await axios.post(`${ env.REACT_APP_URL_BASE }${ web }`,
+            { category }
+        )
+            .then(({ data }) => {
+                setList(data.message.results)         
+                setHide(false);
+                return;
+            })
+            .catch((err) => {
+                console.error(err.response.data.message);
+                return null;
+            });
     }
 
     useEffect(() => {
@@ -48,6 +60,7 @@ function Search() {
             handle={ handleOnChangeCategory }
             web={ handleOnChangeWeb }
             disabled={ disabled }
+            click={ clickSearch }
             
         />
     )
