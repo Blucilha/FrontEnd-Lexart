@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormSearch({ handle, web, disabled }) {
+function FormSearch({ handle, web, disabled, click }) {
     const searchByWeb = () => {
         return (
             <select
@@ -21,6 +21,7 @@ function FormSearch({ handle, web, disabled }) {
                 id='category'
                 name='category'
                 onChange={ handle }
+                defaultValue=' '
             >
                 <option value=''>Categorias</option>
                 <option value='geladeira'>Geladeira</option>
@@ -36,7 +37,7 @@ function FormSearch({ handle, web, disabled }) {
                 id='text'
                 type='text'
                 name='text'
-                defaultValue=''
+                defaultValue=' '
                 onChange={ handle }
             />
         )
@@ -47,6 +48,7 @@ function FormSearch({ handle, web, disabled }) {
             <button
                 type='button'
                 disabled={ disabled }
+                onClick={ click }
             >
                 Pesquisar
             </button>
