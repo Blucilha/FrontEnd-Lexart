@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import FormSearch from "../components/FormSearch";
 import ListContext from "../context/CreateContext";
+import Card from "../components/Card";
 
 function Search() {
-    const { setList } = useContext(ListContext);
+    const { setList, list } = useContext(ListContext);
 
     const [category, setCategory] = useState('');
     const [web, setWeb] = useState('');
@@ -36,8 +37,7 @@ function Search() {
             { category }
         )
             .then(({ data }) => {
-                setList(data.message.results)         
-                setHide(false);
+                setList(data.message.results);
                 return;
             })
             .catch((err) => {
@@ -54,14 +54,38 @@ function Search() {
         }
     }, [category, web]);
 
+    useEffect(() => {
+        if(list.length > 0) {
+            setHide(false);   
+        } else {
+            setHide(true);
+        }
+        
+    }, [list]);
+
     return (
-        <FormSearch
+        <div>
+            <FormSearch
             handle={ handleOnChangeCategory }
             web={ handleOnChangeWeb }
             disabled={ disabled }
             click={ clickSearch }
-            
-        />
+            />
+            { hide
+                ? (<p>Carregando produtos</p>)
+                : (
+                    <div>
+                        {
+                            list.map((item, index) => {
+                                return (
+                                    <Card item={ item } key={ index } />
+                                )
+                            })
+                        }
+                    </div>
+                )
+            }
+        </div>
     )
 }
 
