@@ -74,7 +74,7 @@ function Search() {
             { hide
                 ? (<p>Carregando produtos</p>)
                 : (
-                    <div>
+                    <div className='table-cards'>
                         {
                             list.map((item, index) => {
                                 return (

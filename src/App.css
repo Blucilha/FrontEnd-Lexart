@@ -1,0 +1,75 @@
+:root {
+    --cor-background: rgba(41, 39, 41, 0.8);
+    --cor--fonte: rgba(23, 23, 23, 0.5);
+    --cor--link: rgba(167, 154, 161, 0.8);
+}
+
+@media screen and ( max-width: 360px ){
+    body {
+        margin: 0;
+        padding: 0;
+        font-style: 0;
+        font: var(--cor--fonte);
+        background-color: var(--cor-background);
+    }
+
+    .form {
+        display: flex;
+        align-items: flex-start;
+        padding: 10px;
+        width: 360px;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 80px;
+        width: 100%;
+    }
+
+    .row input, button, select {
+        border-radius: 5px;
+        width: 160px;
+        height: 30px;
+        bottom: 20px;
+        text-align: center;
+    }
+
+    .table-card {
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .card {
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .card img {
+        width: 100px;
+        height: 100px;
+    }
+    .card h3 {
+        font-size: 14px;
+        text-decoration: underline;
+        margin-bottom: 10px;
+    }
+
+    .card h3, p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card a {
+        text-decoration: none;
+        color:inherit;
+        margin-top: 10px;
+        background-color: var(--cor--link);
+    }
+}

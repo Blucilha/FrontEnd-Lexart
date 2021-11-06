@@ -55,11 +55,15 @@ function FormSearch({ handle, web, disabled, click }) {
         )
     }
     return (
-        <form>
+        <form className='form'>
+            <div className='row'>
             { searchByWeb() }
             { searchByCategory() }
+            </div>
+            <div className='row'>
             { searchByText() }
             { searchClickBtn() }
+            </div>
         </form>
     )
 }
