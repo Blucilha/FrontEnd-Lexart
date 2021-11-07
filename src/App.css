@@ -2,9 +2,10 @@
     --cor-background: rgba(41, 39, 41, 0.8);
     --cor--fonte: rgba(23, 23, 23, 0.5);
     --cor--link: rgba(167, 154, 161, 0.8);
+    --cor--fundo--card: rgb(255, 255, 255);
 }
 
-@media screen and ( max-width: 360px ){
+@media screen and ( max-width: 380px ){
     body {
         margin: 0;
         padding: 0;
@@ -37,8 +38,7 @@
         text-align: center;
     }
 
-    .table-card {
-        border: 1px solid red;
+    .table-cards {
         display: flex;
         flex-direction: column;
         width: 360px;
@@ -72,4 +72,52 @@
         margin-top: 10px;
         background-color: var(--cor--link);
     }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-style: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: var(--cor--fonte);
+    background-color: var(--cor-background);
+
+}
+
+.form {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 720px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+.table-cards {
+    display: flex;
+    flex-flow: wrap;
+    width: 740px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    width: 200px;
+    padding: 10px;
+    background-color: var(--cor--fundo--card);
+    border-radius: 5px;
+}
+
+.card img{
+    width: 200px;
 }
