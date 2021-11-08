@@ -37,6 +37,7 @@
         padding: 10px;
         margin-bottom: 10px;
         background-color: var(--cor--fundo--card);
+        margin-left: 5px;
     }
 
     .card h3, strong, p, a {
