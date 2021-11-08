@@ -3,6 +3,7 @@
     --cor--fonte: rgba(23, 23, 23, 0.5);
     --cor--link: rgba(167, 154, 161, 0.8);
     --cor--fundo--card: rgb(255, 255, 255);
+    --cor--btn--link: rgb(104, 84, 84);
 }
 @media screen and ( max-width: 380px ){
     body {
@@ -13,11 +14,11 @@
     }
 
     .form {
-        border: 1px red solid;
         width: 380px;
         height: 120px;
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
     }
 
     .row {
@@ -28,6 +29,36 @@
     .row select, input, button {
         height: 20;
         margin: 5px;
+        text-align: center;
+    }
+
+    .card {
+        display: flex;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: var(--cor--fundo--card);
+    }
+
+    .card h3, strong, p, a {
+        font-size: 10px;
+        margin: 2px;
+    }
+
+    .card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card a {
+        text-decoration: none;
+        color: var(--cor--fundo--card);
+        padding: 5px;
+        background-color: var(--cor--btn--link);
+        border-radius: 5px;
+    }
+
+    .card a:visited {
+        color: var(--cor--fundo--card);
     }
 
 }
