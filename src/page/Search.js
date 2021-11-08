@@ -10,7 +10,7 @@ function Search() {
     const [category, setCategory] = useState('');
     const [web, setWeb] = useState('');
     const [disabled, setDisabled] = useState(true);
-    const [hide, setHide] = useState(true);
+    const [messageError, setMessageError] = useState('');
 
     const textItem = document.querySelector('#text');
     const categorySelected = document.querySelector('#category');
@@ -38,9 +38,11 @@ function Search() {
         )
             .then(({ data }) => {
                 setList(data.message.results);
+                setMessageError('');
                 return;
             })
             .catch((err) => {
+                setMessageError(err.response.data.message);
                 console.error(err.response.data.message);
                 return null;
             });
@@ -54,15 +56,6 @@ function Search() {
         }
     }, [category, web]);
 
-    useEffect(() => {
-        if(list.length > 0) {
-            setHide(false);   
-        } else {
-            setHide(true);
-        }
-        
-    }, [list]);
-
     return (
         <div>
             <FormSearch
@@ -71,8 +64,8 @@ function Search() {
             disabled={ disabled }
             click={ clickSearch }
             />
-            { hide
-                ? (<p>Carregando produtos</p>)
+            { messageError
+                ? (<p>{ messageError }.</p>)
                 : (
                     <div className='table-cards'>
                         {

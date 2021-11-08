@@ -9,6 +9,7 @@ function FormSearch({ handle, web, disabled, click }) {
                 onChange={ web }
             >
                 <option value=''>Webs</option>
+                <option value='all'>All</option>
                 <option value='buscape'>buscape</option>
                 <option value='mercado-livre'>mercado livre</option>
             </select>
@@ -37,7 +38,7 @@ function FormSearch({ handle, web, disabled, click }) {
                 id='text'
                 type='text'
                 name='text'
-                defaultValue=' '
+                defaultValue=''
                 onChange={ handle }
             />
         )
